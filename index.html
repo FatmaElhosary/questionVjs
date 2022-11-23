@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- CSS only -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- <h3>ميز الجملة التى يصح جزم المضارع فى جواب طلبها ٢		 ٣</h3> -->
+    <!--//////////////////////////////pagination  /////////////////////////////////////////////////-->
+    <!-- <h1>Pagination with Vanilla JavaScript</h1> -->
+    <ul id="paginated-list" data-current-page="1" aria-live="polite" class="">
+      <div class="container center-screen">
+        <div class="question">
+          <h3>
+            ميز الجملة التي يصحُّ جزم المضارع في جواب طلبها من بين الجمل التالية
+            :
+          </h3>
+        </div>
+        <form id="test">
+          <div class="answers">
+            <div class="answer">
+              <input
+                type="radio"
+                id="r1"
+                name="answer"
+                value="تمتع بحديقة تمتلئ بالأزهار الجميلة "
+              />
+              <span> تمتع بحديقة تمتلئ بالأزهار الجميلة </span>
+            </div>
+            <div class="answer">
+              <input
+                type="radio"
+                id="r2"
+                name="answer"
+                value="اقرأ ما شئت تستفد"
+              />
+              اقرأ ما شئت تستفد
+            </div>
+            <div class="answer">
+              <input
+                type="radio"
+                id="r3"
+                name="answer"
+                value="حسن إلى بائس يضجُّ بالشكوى"
+              />
+              حسن إلى بائس يضجُّ بالشكوى
+            </div>
+            <div class="answer">
+              <input
+                type="radio"
+                id="r4"
+                name="answer"
+                value="لا تتخلَّ عن حرٍّ ينزلُ به الضرُّ"
+              />
+              لا تتخلَّ عن حرٍّ ينزلُ به الضرُّ
+            </div>
+          </div>
+          <button class="btn btn-primary" id="btnConfirm"  >تأكيد</button>
+        </form>
+        <div class="content">
+         
+          <a class="btn btn-primary" id="btnTry" style="display: none"
+            >أعد المحاولة</a
+          >
+          <button
+            class="btn-primary pr-5 pl-5"
+            id="btnknowAns"
+            style="display: none"
+          >
+            تعرف على الإجابة
+          </button>
+          <!-- ////////////right answer modal/////////////// -->
+          <div class="right" style="display: none" id="btnTrue">
+            <a class="btn btn-primary"> إجابة صحيحة</a>
+            <a class="btn btn-primary" id="btnreason"> سبب الإجابة</a>
+          </div>
+          <!-- /////////reason for  answer modal -->
+          <div class="reason" id="reason" style="display: none">
+            answer reason
+          </div>
+          <!-- /////////know answer modal-->
+          <div class="answer" style="display: none" id="showAns">
+            <h4 class="btn btn-primary">الإجابة</h4>
+            <a class="btn btn-primary" id="btnmore">المزيد</a>
+          </div>
+          <!-- /////////answer details modal -->
+          <div class="more" id="more" style="display: none">تفاصيل الإجابة</div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div
+          class="d-flex align-items-center justify-content-center"
+          style="height: 1000px"
+        >
+          <form id="test">
+            <div id="rates">
+              <input type="radio" id="r1" name="rate" value="Fixed Rate" />
+              Fixed
+              <input type="radio" id="r2" name="rate" value="Variable Rate" />
+              Variable
+              <input type="radio" id="r3" name="rate" value="Multi Rate" />
+              Multi
+            </div>
+            <div class="content">
+              <button class="btn btn-primary" id="btnConfirm">تأكيد</button>
+              <a class="btn btn-primary" id="btnTry" style="display: none"
+                >أعد المحاولة</a
+              >
+              <button
+                class="btn btn-primary"
+                id="btnknowAns"
+                style="display: none"
+              >
+                تعرف على الإجابة
+              </button>
+              <!-- ////////////right/////////////// -->
+              <div class="right" style="display: none" id="btnTrue">
+                <a class="btn btn-primary"> إجابة صحيحة</a>
+                <a class="btn btn-primary" id="btnreason"> سبب الإجابة</a>
+              </div>
+              <div class="reason" id="reason" style="display: none">
+                answer reason
+              </div>
+              <!-- /////////know answer -->
+              <div class="answer" style="display: none" id="showAns">
+                <h4 class="btn btn-primary">الإجابة</h4>
+                <a class="btn btn-primary" id="btnmore">المزيد</a>
+              </div>
+              <div class="more" id="more" style="display: none">
+                تفاصيل الإجابة
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </ul>
+
+    <nav class="pagination-container">
+      <button
+        class="pagination-button"
+        id="prev-button"
+        aria-label="Previous page"
+        title="Previous page"
+      >
+        &lt;
+      </button>
+
+      <div id="pagination-numbers"></div>
+
+      <button
+        class="pagination-button"
+        id="next-button"
+        aria-label="Next page"
+        title="Next page"
+      >
+        &gt;
+      </button>
+    </nav>
+<!-- Modal For right answer -->
+<div class="modal fade " id="TrueAnswer" tabindex="-1"  data-bs-backdrop="static" data-bs-keyboard="false" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       الإجابة صحيحة
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary">سبب الإجابة</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--//////////////////////////////////////-->
+<!-- Modal For reason answer -->
+<div class="modal fade " id="TrueAnswer" tabindex="-1"  data-bs-backdrop="static" data-bs-keyboard="false" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+       سبب الإجابة 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary">سبب الإجابة</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--//////////////////////////////////////-->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/index.js" defer></script>
+  </body>
+</html>
